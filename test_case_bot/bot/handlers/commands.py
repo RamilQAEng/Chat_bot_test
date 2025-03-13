@@ -2,6 +2,15 @@ from aiogram import types
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from utils.logger import logger
+from bot.keyboard.inline_keyboards import get_main_keyboard
+
+# Обработчик команды /start
+async def cmd_start(message: types.Message):
+    logger.info("Обработка команды /start")
+    await message.answer(
+        "👋 Привет! Я помогу сгенерировать тест-кейсы. Выберите действие:",
+        reply_markup=get_main_keyboard()  # Показываем клавиатуру с кнопками
+    )
 
 # Обработчик команды /help
 async def cmd_help(message: types.Message, state: FSMContext):
@@ -26,5 +35,6 @@ async def cmd_new(message: types.Message, state: FSMContext):
 
 # Регистрация обработчиков команд
 def register_handlers(dp):
+    dp.message.register(cmd_start, Command("start"))
     dp.message.register(cmd_help, Command("help"))
     dp.message.register(cmd_new, Command("new"))
