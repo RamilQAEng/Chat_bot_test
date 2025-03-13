@@ -1,16 +1,28 @@
 import pandas as pd
-from io import BytesIO
 from datetime import datetime
+from utils.logger import logger
 
-def create_excel_from_test_cases(test_cases_text: str) -> str:
-    lines = [line.split("|") for line in test_cases_text.strip().split("\n") if line]
-    
-    df = pd.DataFrame(
-        lines,
-        columns=["Название", "Предусловия", "Шаги", "Ожидаемый результат", "Приоритет"]
-    )
-    
-    file_name = f"test_cases_{datetime.now().strftime('%Y%m%d_%H%M%S')}.xlsx"
-    df.to_excel(file_name, index=False)
-    
-    return file_name
+def create_excel_from_test_cases(test_cases: list, filename: str = None) -> str:
+    """
+    Создаёт Excel-файл из списка тест-кейсов.
+
+    :param test_cases: Список тест-кейсов (каждый тест-кейс — это словарь).
+    :param filename: Имя файла (если не указано, генерируется автоматически).
+    :return: Имя созданного файла.
+    """
+    try:
+        # Если имя файла не указано, генерируем его
+        if not filename:
+            filename = f"test_cases_{datetime.now().strftime('%Y%m%d_%H%M%S')}.xlsx"
+        
+        # Создаём DataFrame из списка тест-кейсов
+        df = pd.DataFrame(test_cases)
+        
+        # Сохраняем DataFrame в Excel-файл
+        df.to_excel(filename, index=False)
+        
+        logger.info(f"✅ Excel-файл успешно создан: {filename}")
+        return filename
+    except Exception as e:
+        logger.error(f"❌ Ошибка при создании Excel-файла: {e}")
+        return None
