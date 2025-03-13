@@ -5,6 +5,8 @@ from services.excel_service import create_excel_from_test_cases
 from database.db_client import DatabaseClient
 from models.test_case import TestCase
 from utils.logger import logger
+from aiogram.filters import StateFilter
+from bot.handlers.states import UserStates  # Импортируем состояние
 
 gigachat = GigaChatService()
 
@@ -40,9 +42,13 @@ async def process_text_tz(message: types.Message, state: FSMContext):
         excel_file = create_excel_from_test_cases(response)
         await message.answer_document(types.FSInputFile(excel_file), caption="✅ Готово! Вот тест-кейсы.")
         
+        # Сбрасываем состояние
+        await state.clear()
+        
     except Exception as e:
         logger.error(f"Ошибка: {e}")
         await message.answer("⚠️ Произошла ошибка при обработке ТЗ.")
+        await state.clear()
 
 def register_handlers(dp):
-    dp.message.register(process_text_tz, lambda msg: msg.text and not msg.text.startswith('/'))
+    dp.message.register(process_text_tz, StateFilter(UserStates.waiting_for_tz))
