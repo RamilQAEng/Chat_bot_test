@@ -1,10 +1,8 @@
 from pydantic import BaseModel
-from typing import Optional
 
 class TestCase(BaseModel):
-    id: Optional[int] = None
-    title: str
-    preconditions: str
-    steps: str
-    expected_result: str
-    priority: str
+    title: str  # Название тест-кейса
+    preconditions: str  # Предварительные условия
+    steps: str  # Шаги выполнения
+    expected_result: str  # Ожидаемый результат
+    priority: str  # Приоритет

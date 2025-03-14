@@ -1,0 +1,11 @@
+2025-03-14 19:05:04,579 - INFO - Start polling
+2025-03-14 19:05:04,900 - INFO - Run polling for bot @QA_FirstTest_bot id=8102036040 - 'Bot_QA_test1'
+2025-03-14 19:05:21,387 - INFO - Обработка команды /start
+2025-03-14 19:05:21,718 - INFO - Update id=176507618 is handled. Duration 333 ms by bot id=8102036040
+2025-03-14 19:05:31,361 - INFO - Обработка кнопки 'Помощь'
+2025-03-14 19:05:31,682 - INFO - Update id=176507619 is handled. Duration 321 ms by bot id=8102036040
+2025-03-14 19:05:40,122 - INFO - Обработка кнопки 'Новая сессия'
+2025-03-14 19:05:40,360 - INFO - Update id=176507620 is handled. Duration 239 ms by bot id=8102036040
+2025-03-14 19:06:05,596 - WARNING - Received SIGINT signal
+2025-03-14 19:06:05,602 - INFO - Polling stopped for bot @QA_FirstTest_bot id=8102036040 - 'Bot_QA_test1'
+2025-03-14 19:06:05,603 - INFO - Polling stopped
