@@ -1,0 +1,54 @@
+2025-03-13 20:05:53,297 - INFO - Start polling
+2025-03-13 20:05:53,458 - INFO - Run polling for bot @QA_FirstTest_bot id=8102036040 - 'Bot_QA_test1'
+2025-03-13 20:06:16,082 - INFO - Обработка команды /start
+2025-03-13 20:06:16,374 - INFO - Update id=176507607 is handled. Duration 294 ms by bot id=8102036040
+2025-03-13 20:06:17,457 - INFO - Обработка кнопки 'Отправить ТЗ'
+2025-03-13 20:06:17,618 - INFO - Update id=176507608 is handled. Duration 161 ms by bot id=8102036040
+2025-03-13 20:06:30,338 - INFO - Обработка текстового ТЗ
+2025-03-13 20:06:30,548 - INFO - ✅ Успешно получен новый Access Token
+2025-03-13 20:06:31,910 - INFO - Ответ от GigaChat API: {'choices': [{'message': {'content': '[\n  {\n    "Название": "Авторизация с корректными данными",\n    "Предусловия": "Пользователь находится на главной странице.",\n    "Шаги": "1. Нажать на кнопку \'Войти\'.\\n2. Ввести корректный логин и пароль.\\n3. Нажать на кнопку \'Войти\'.",\n    "Ожидаемый результат": "Пользователь перенаправляется на главную страницу.",\n    "Приоритет": "Высокий"\n  },\n  {\n    "Название": "Авторизация с некорректными данными",\n    "Предусловия": "Пользователь находится на странице авторизации.",\n    "Шаги": "1. Нажать на кнопку \'Войти\'.\\n2. Ввести некорректный логин и пароль.\\n3. Нажать на кнопку \'Войти\'.",\n    "Ожидаемый результат": "Отображается сообщение об ошибке.",\n    "Приоритет": "Высокий"\n  }\n]', 'role': 'assistant'}, 'index': 0, 'finish_reason': 'stop'}], 'created': 1741885591, 'model': 'GigaChat:1.0.26.20', 'object': 'chat.completion', 'usage': {'prompt_tokens': 360, 'completion_tokens': 245, 'total_tokens': 605, 'precached_prompt_tokens': 0}}
+2025-03-13 20:06:31,916 - INFO - ✅ Успешное подключение к базе данных: test_cases.db
+2025-03-13 20:06:31,918 - INFO - ✅ Таблица 'test_cases' создана или уже существует.
+2025-03-13 20:06:31,919 - ERROR - ❌ Ошибка валидации тест-кейса: 5 validation errors for TestCase
+title
+  Field required [type=missing, input_value={'Название': 'А...ет': 'Высокий'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+preconditions
+  Field required [type=missing, input_value={'Название': 'А...ет': 'Высокий'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+steps
+  Field required [type=missing, input_value={'Название': 'А...ет': 'Высокий'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+expected_result
+  Field required [type=missing, input_value={'Название': 'А...ет': 'Высокий'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+priority
+  Field required [type=missing, input_value={'Название': 'А...ет': 'Высокий'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+2025-03-13 20:06:31,919 - ERROR - ❌ Ошибка валидации тест-кейса: 5 validation errors for TestCase
+title
+  Field required [type=missing, input_value={'Название': 'А...ет': 'Высокий'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+preconditions
+  Field required [type=missing, input_value={'Название': 'А...ет': 'Высокий'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+steps
+  Field required [type=missing, input_value={'Название': 'А...ет': 'Высокий'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+expected_result
+  Field required [type=missing, input_value={'Название': 'А...ет': 'Высокий'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+priority
+  Field required [type=missing, input_value={'Название': 'А...ет': 'Высокий'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+2025-03-13 20:06:31,919 - INFO - ✅ Соединение с базой данных закрыто.
+2025-03-13 20:06:32,933 - INFO - ✅ Excel-файл успешно создан: test_cases_20250313_200631.xlsx
+2025-03-13 20:06:33,111 - INFO - Update id=176507609 is handled. Duration 2772 ms by bot id=8102036040
+2025-03-13 20:39:04,953 - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2025-03-13 20:39:04,955 - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8102036040)
+2025-03-13 20:39:06,146 - INFO - Connection established (tryings = 1, bot id = 8102036040)
+2025-03-13 20:39:06,148 - INFO - Обработка команды /start
+2025-03-13 20:39:06,372 - INFO - Update id=176507610 is handled. Duration 224 ms by bot id=8102036040
+2025-03-13 20:39:18,417 - WARNING - Received SIGINT signal
+2025-03-13 20:39:18,418 - INFO - Polling stopped for bot @QA_FirstTest_bot id=8102036040 - 'Bot_QA_test1'
+2025-03-13 20:39:18,418 - INFO - Polling stopped
