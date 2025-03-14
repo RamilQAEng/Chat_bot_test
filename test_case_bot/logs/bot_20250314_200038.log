@@ -1,0 +1,5 @@
+2025-03-14 20:00:38,889 - INFO - Start polling
+2025-03-14 20:00:39,075 - INFO - Run polling for bot @QA_FirstTest_bot id=8102036040 - 'Bot_QA_test1'
+2025-03-14 20:00:41,060 - WARNING - Received SIGINT signal
+2025-03-14 20:00:41,061 - INFO - Polling stopped for bot @QA_FirstTest_bot id=8102036040 - 'Bot_QA_test1'
+2025-03-14 20:00:41,061 - INFO - Polling stopped
