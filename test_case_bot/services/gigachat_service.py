@@ -2,6 +2,7 @@ import json
 import aiohttp
 import logging
 import time
+import certifi
 import ssl
 from config import TOKEN_URL, API_URL, AUTHORIZATION_KEY, SCOPE
 from utils.logger import logger
@@ -11,7 +12,7 @@ class GigaChatService:
         self.token = None
         self.token_expiry = 0  # Время истечения токена
         # Создаем SSL-контекст с пользовательским сертификатом
-        self.ssl_context = ssl.create_default_context(cafile="/Users/ramilallahverdiev/Desktop/Chat_bot/venv/lib/python3.13/site-packages/certifi/cacert.pem")
+        self.ssl_context = ssl.create_default_context(cafile=certifi.where())
 
     async def _get_access_token(self):
         """
