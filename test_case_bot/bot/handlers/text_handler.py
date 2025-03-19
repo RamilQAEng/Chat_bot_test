@@ -7,6 +7,7 @@ from services.excel_service import create_excel_from_test_cases
 from database.db_client import DatabaseClient
 from models.test_case import TestCase
 from utils.logger import logger
+from bot.keyboard.inline_keyboards import get_main_keyboard
 
 gigachat = GigaChatService()
 
@@ -94,5 +95,32 @@ async def process_text_tz(message: types.Message, state: FSMContext):
         await message.answer("⚠️ Произошла ошибка при обработке ТЗ.")
         await state.clear()
 
+async def handle_button_press(message: types.Message, state: FSMContext):
+    """Обработчик нажатий на кнопки клавиатуры"""
+    if message.text == "📝 Отправить ТЗ":
+        await message.answer("Пожалуйста, отправьте текст ТЗ.")
+    elif message.text == "🆕 Новая сессия":
+        await state.clear()
+        await message.answer("🆕 Новая сессия начата. Отправьте мне ТЗ.", reply_markup=get_main_keyboard())
+    elif message.text == "ℹ️ Помощь":
+        await state.clear()
+        await message.answer(
+            "📚 Как использовать бота:\n"
+            "1. Отправьте ТЗ в виде текста или файла.\n"
+            "2. Дождитесь обработки.\n"
+            "3. Получите Excel-файл с тест-кейсами.\n\n"
+            "Доступные кнопки:\n"
+            "📝 Отправить ТЗ - Отправить новое ТЗ\n"
+            "🆕 Новая сессия - Начать новую сессию\n"
+            "ℹ️ Помощь - Показать эту справку",
+            reply_markup=get_main_keyboard()
+        )
+    else:
+        return False
+    return True
+
 def register_handlers(dp):
-    dp.message.register(process_text_tz, lambda msg: msg.text and not msg.text.startswith('/'))
+    # Регистрируем обработчик кнопок
+    dp.message.register(handle_button_press, lambda msg: msg.text in ["📝 Отправить ТЗ", "🆕 Новая сессия", "ℹ️ Помощь"])
+    # Регистрируем обработчик текстовых сообщений
+    dp.message.register(process_text_tz, lambda msg: msg.text and not msg.text.startswith('/') and msg.text not in ["📝 Отправить ТЗ", "🆕 Новая сессия", "ℹ️ Помощь"])

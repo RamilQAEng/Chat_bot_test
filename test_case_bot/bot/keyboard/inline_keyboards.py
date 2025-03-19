@@ -1,9 +1,13 @@
-from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
 def get_main_keyboard():
-    return InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="📝 Отправить ТЗ", callback_data="send_tz")],
-        [InlineKeyboardButton(text="🆕 Новая сессия", callback_data="new_session")],
-        [InlineKeyboardButton(text="ℹ️ Помощь", callback_data="help")]
-    ])
+    return ReplyKeyboardMarkup(
+        keyboard=[
+            [KeyboardButton(text="📝 Отправить ТЗ")],
+            [KeyboardButton(text="🆕 Новая сессия")],
+            [KeyboardButton(text="ℹ️ Помощь")]
+        ],
+        resize_keyboard=True,  # Уменьшаем размер кнопок
+        persistent=True  # Делаем клавиатуру постоянной
+    )
 
