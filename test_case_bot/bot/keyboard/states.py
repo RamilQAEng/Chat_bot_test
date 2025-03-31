@@ -1,4 +1,4 @@
 from aiogram.fsm.state import State, StatesGroup
 
 class UserStates(StatesGroup):
-    waiting_for_tz = State()  # Состояние ожидания ТЗ
+    waiting_for_tz = State()

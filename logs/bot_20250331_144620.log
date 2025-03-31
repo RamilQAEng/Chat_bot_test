@@ -1,0 +1,8 @@
+2025-03-31 14:46:20,428 - INFO - Start polling
+2025-03-31 14:46:21,037 - INFO - Run polling for bot @QA_FirstTest_bot id=8102036040 - 'Bot_QA_test1'
+2025-03-31 14:46:28,296 - INFO - Update id=176507672 is not handled. Duration 1 ms by bot id=8102036040
+2025-03-31 14:46:31,767 - INFO - Update id=176507673 is not handled. Duration 1 ms by bot id=8102036040
+2025-03-31 14:46:32,562 - INFO - Update id=176507674 is not handled. Duration 1 ms by bot id=8102036040
+2025-03-31 14:47:19,199 - WARNING - Received SIGINT signal
+2025-03-31 14:47:19,202 - INFO - Polling stopped for bot @QA_FirstTest_bot id=8102036040 - 'Bot_QA_test1'
+2025-03-31 14:47:19,203 - INFO - Polling stopped

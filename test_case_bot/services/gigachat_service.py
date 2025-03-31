@@ -11,7 +11,9 @@ class GigaChatService:
         self.token = None
         self.token_expiry = 0  # Время истечения токена
         # Создаем SSL-контекст с пользовательским сертификатом
-        self.ssl_context = ssl.create_default_context(cafile="/Users/ramilallahverdiev/Desktop/Chat_bot/venv/lib/python3.13/site-packages/certifi/cacert.pem")
+        import os
+        cert_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "certs", "cacert.pem")
+        self.ssl_context = ssl.create_default_context(cafile=cert_path)
 
     async def _get_access_token(self):
         """
@@ -73,7 +75,9 @@ class GigaChatService:
     "messages": [
         {
             "role": "system",
-            "content": "Ты QA-инженер. Создай тест-кейсы и верни их в формате JSON. Пример:\n"
+            "content": "Ты QA-инженер. Найди раздел 'Функциональные требования' (или его варианты: 'Functional requirements', 'Функционал', 'Функции'). "
+                       "Анализируй только этот раздел. Создай тест-кейсы только для найденных функциональных требований и верни их в формате JSON. "
+                       "Если раздел не найден, верни пустой список. Игнорируй все остальные разделы. Пример:\n"
                        "[\n"
                        "  {\n"
                        "    \"Название\": \"Тест-кейс 1\",\n"
